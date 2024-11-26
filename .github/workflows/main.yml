@@ -11,9 +11,7 @@ jobs:
               run: echo "Aqui eu executo o teste de software"
             - name: Publicando a Release
               run: echo "Publicação da Relase final"
-    CD:
-        runs-on: ubuntu-latest
+    CD: 
         needs: [CI]
-        steps:
-            - name: Deploy no ambiente
-              run: echo "Executando o deploy no ambiente de desenvolvimento"
+        uses: ventocilla/repo-reaproveitavel/.github/workflows/cd.yml@main
+    
