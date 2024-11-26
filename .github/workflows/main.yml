@@ -1,6 +1,16 @@
 name: CI/CD Fake
 on: 
     workflow_dispatch:  
+        inputs:
+                ambiente:
+                    type: choice
+                    default: "desenvolvimento"
+                    required: true
+                    description: "Ambiente onde vai ser feito o deploy"
+                    options:
+                      - desenvolvimento
+                      - homologação
+                      - produção
 jobs:
     CI:
         runs-on: ubuntu-latest
@@ -15,5 +25,5 @@ jobs:
         needs: [CI]
         uses: ventocilla/repo-reaproveitavel/.github/workflows/cd.yml@main
         with:
-            ambiente: producao
+            ambiente: ${{inputs.ambiente }}
     
