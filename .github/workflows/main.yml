@@ -14,8 +14,5 @@ jobs:
     CD: 
         needs: [CI]
         uses: ventocilla/repo-reaproveitavel/.github/workflows/cd.yml@main
-        # with:
-        #     ambiente: ${{inputs.ambiente }}
-        secrets: 
-            ambiente: ${{ secrets.AMBIENTE_ENTREGA }}
+        secrets: inherit
     

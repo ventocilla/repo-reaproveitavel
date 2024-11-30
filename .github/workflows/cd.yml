@@ -1,15 +1,11 @@
 name: Deploy Fake
 on:
     workflow_call:
-        secrets:
-            ambiente:
-                required: true
-                description: "Ambiente onde vai ser feito o deploy"
 jobs: 
     deploy-kubernetes:
         runs-on: ubuntu-latest
         steps:
             - name: Deploy no ambiente
-              run: echo "Executando o deploy no ambiente de ${{ secrets.ambiente }}"
+              run: echo "Executando o deploy no ambiente de ${{ secrets.AMBIENTE_ENTREGA }}"
             - name: Curl Deploy no ambiente
-              run: "curl -X POST https://webhook.site/feb6ce45-2fd9-47c0-bbee-34dca5268a62 -d '{ ambiente: ${{ secrets.ambiente }}}'"
+              run: "curl -X POST https://webhook.site/feb6ce45-2fd9-47c0-bbee-34dca5268a62 -d '{ ambiente: ${{ secrets.AMBIENTE_ENTREGA }}}'"
