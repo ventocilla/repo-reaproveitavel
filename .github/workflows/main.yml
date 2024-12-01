@@ -13,6 +13,6 @@ jobs:
               run: echo "Publicação da Relase final"
     CD: 
         needs: [CI]
-        uses: ventocilla/repo-reaproveitavel/.github/workflows/cd.yml@main
+        uses: ventocilla/repo-deploy/.github/workflows/deploy.yaml@main
         secrets: inherit
     
